@@ -1,0 +1,140 @@
+<div class="story-detailed-main">
+
+    @if (story.value(); as storyItem) {
+        <div class="story-extra">
+           <p class="authors" (click)="showAuthors.update(v=> !v)"><strong>authors: {{storyItem.co_authors.length}}</strong></p>
+           @if (showAuthors()) {
+            <p>{{storyItem.co_authors.join(', ')}}</p>
+           }
+           <p>{{storyItem.created_at | date:'mediumDate'}}</p>
+           <p>chapters: {{storyItem.total_chapters}}</p>
+        </div>
+        <h2>{{storyItem.title}}</h2> 
+
+        @if (activeChapter.value(); as chapter) {
+            <div class="chapter-extra">
+                <button class="buttonAdd" (click)="addChapter('form')" [disabled]="add()">Add new Chapter</button>
+                <h3>Chapter: {{chapter.chapter_number}}</h3>
+                <p class="chap-author">author: {{chapter.author_username}}</p>
+            </div>
+               
+            <div class="chapter-content">
+                 <p>{{chapter.content}}</p>
+            </div>
+
+            <div class="navigation-controls">
+                <button 
+                    [disabled]="currentChapterNumber() === 1" 
+                    (click)="goToPreviousChapter()">
+                    ← Previous Chapter
+                </button>
+                
+                <span class="page-indicator">{{currentChapterNumber()}} / {{storyItem.total_chapters}}</span>
+
+                <button 
+                    [disabled]="currentChapterNumber() === storyItem.total_chapters" 
+                    (click)="goToNextChapter()">
+                    Next Chapter →
+                </button>
+            </div>
+
+
+            <div class="action-footer">
+              @if (!add()) {
+        
+            <button id="form" class="buttonAdd" (click)="add.update(v => !v)" [disabled]="add()">Add new Chapter proposal</button>
+
+             } @else {
+        <button class="buttonAdd" (click)="add.set(false)">Close</button>
+    }
+        </div>
+
+
+         @if (errorMessage()) {
+        <div class="message error-message">
+            <p>{{ errorMessage() }}</p>
+            <button (click)="errorMessage.set(null)">close</button>
+        </div>
+    } @else if (message()) {
+        <div class="message success-message">
+            <p>Your request was sent! Check updates in your notifications.</p>
+            <button (click)="message.set(false)">close</button>
+        </div>
+    }
+
+    @if (add() && !message() && !errorMessage()) {
+        <div class="addForm">
+            <form [formGroup]="chapterForm" (ngSubmit)="addNewChapter()">
+                <textarea id="firstChapter" formControlName="content" appResizeDirective placeholder="Once upon a time, in a world far away..."></textarea>
+                <button class="buttonAdd" type="submit" [disabled]="chapterForm.invalid">Send Chapter</button>
+            </form>
+        </div>
+    }
+
+            <div class="comment-area">
+                <h3>Comments</h3>
+                @if (storyItem.comments && storyItem.comments.length >= 1) {
+                    @for (comment of storyItem.comments; track comment.id) {
+                        <div class="comment-item">
+
+                            <app-author [id]="comment.author">
+                            <p  #trigger  class="comment-author">{{comment.author_username}}</p>
+                            </app-author>
+
+                            @if (editCommentMode() === comment.id) {
+
+                                 <form [formGroup]="editCommentForm" (ngSubmit)="editComment(comment.id)">
+                                    <textarea formControlName="content" appResizeDirective> </textarea>
+                                    <button type="submit">Save Comment</button>
+                                </form>
+
+                                
+
+                            } @else {
+                                 <p> {{comment.content}}</p>
+                                 @if (userData(); as user) {
+                                @if (comment.author === user.id) {
+                                    
+                                    <div class="comment-extras">
+                                        <button (click)="editCommentMode.set(comment.id);   editCommentForm.get('content')?.setValue(comment.content)">Edit</button>
+                                        <button (click)="deleteComment(comment.id)">Delete</button>
+                                    </div>
+                                }
+                            }
+
+                            }
+                           
+                           
+                            
+                        </div>
+                    }
+                } @else {
+                    <p>No comment Yet</p>
+                }
+
+                <h4>Add Comment </h4>
+                <form [formGroup]="commentForm" (ngSubmit)="addComment()">
+                     <textarea formControlName="content" appResizeDirective placeholder="Leave your comment"></textarea>
+                    <button type="submit">Add Comment</button>
+                </form>
+
+            </div>
+
+            
+
+
+
+            @if (userData()?.id === chapter.author) {
+                <button class="delete-btn" (click)="deleteChap(chapter.id)">Delete Chapter</button>
+            }
+        }
+    }
+
+  
+         
+
+   
+   
+
+   
+</div>

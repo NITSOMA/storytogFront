@@ -1,0 +1,29 @@
+<div #triggerWrapper class="trigger-wrapper" (click)="isVisible.update(v => !v)">
+  <ng-content></ng-content>
+</div>
+
+@if (isVisible()) {
+  <div class="main">
+    @if (authorData.value(); as author) {
+      <div class="image-area">
+        <img [src]="author.profile_image">
+
+      </div>
+     
+      <p>About {{author.username}}:  <strong>{{author.about}}</strong></p>
+      <h3>Stories of {{author.username}}</h3>
+      @if (author.contributed_stories.length >=1){
+        @for (story of author.contributed_stories; track story.id) {
+          <p class="story-item" [routerLink]="['/story', story.id]">{{story.title}}</p>
+
+        }
+
+      } @else {
+        <p>Author has no story yet</p>
+      }
+      
+      
+    }
+  </div>
+}
+

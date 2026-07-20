@@ -1,0 +1,143 @@
+.profile-extra {
+    padding: 25px 25px;
+    
+    min-height: 55vh;
+    background-color: rgba(22, 22, 22, 0.878);
+    position: absolute;
+    min-width: 50%;
+    top: 80px;
+    left: 50%;
+    right: 0;
+    z-index: 9999;
+    border: 3px solid white;
+    
+}
+
+
+.full-extra {
+    width: 100%;
+    left: 0;
+}
+
+.profile-detail {
+    display: flex;
+    flex-direction: column;
+    
+    
+
+}
+.notification-svg {
+    position: relative;
+}
+.numb-not {
+    position: absolute;
+    top: 0;
+    left: 65px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: red;
+    z-index: 99999;
+    
+}
+
+.item {
+    background-color: rgba(255, 255, 255, 0.727);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    border: 2px solid white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    justify-content: space-between;
+
+}
+
+.close-svg {
+   cursor: pointer;
+    text-align: end;
+}
+
+.item a  {
+    all: unset;
+    text-align: center;
+}
+
+.notif-item {
+    background-color: rgb(124, 126, 124);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+   
+    
+}
+.notification-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: aliceblue;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.item button, .item a {
+    background-color: white;
+    width: 150px;
+    padding: 5px 3px;
+    border-radius: 10px;
+    border: 1px solid rgb(55, 54, 54);
+    font-size: 0.9rem;
+    
+}
+
+.item button:hover,  .item a:hover {
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+
+.edit-item {
+   
+    padding-right: 40px;
+    background-color: rgb(255, 255, 255);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 100%;
+}
+
+label, input, textarea {
+    all: unset;
+    width: 100%;
+
+    
+}
+
+input, textarea {
+    border: 1px solid pink;
+    padding: 10px;
+}
+
+svg {
+    border: 1px solid black;
+  
+    
+}
+
+.delete-item {
+ flex-direction: column;
+}
+
+@media screen and (max-width: 610px ) {
+    .profile-extra {
+        width: 100%;
+        left: 0;
+    }
+    
+}
+

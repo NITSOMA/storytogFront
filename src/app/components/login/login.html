@@ -1,0 +1,58 @@
+<div class="main-content">
+
+  
+  <div class="registration-main">
+     <div  class="image-area mouse">
+        <img  src="images/mouse.png" alt="">
+    </div>
+
+    <div class="register-form">
+
+      <div class="tab-header">
+        <button class="tab active">Sign In</button>
+        <button class="tab" routerLink="/register">Create Account</button>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+
+        <div class="input-group">
+
+          <label>Email Address Or Username</label>
+
+          <div class="input-wrapper">        
+            <input type="text" formControlName="login_id">
+          </div>
+
+        </div>
+
+
+        <div class="input-group">
+
+          <div class="label-row">
+            <label>Password</label>      
+          </div>
+
+          <div class="input-wrapper">
+          
+            <input type="password" formControlName="password" placeholder="••••••••">
+          </div>
+
+        </div>
+        @if (errorMessage()) {
+          <div class="error-area">
+            <p>Wrong Credentials</p>
+          </div>
+        }
+
+          <button type="submit" class="btn-main" [disabled]="loginForm.invalid">Enter Sanctuary</button>
+      </form>
+
+        
+
+    </div>
+
+     <div class="image-area">
+        <img src="images/cat.png" alt="">
+    </div>
+  </div>
+</div>

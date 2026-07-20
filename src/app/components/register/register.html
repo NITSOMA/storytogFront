@@ -1,0 +1,75 @@
+<div class="mian-content">
+<div class="registration-main">
+
+     <div class="image-area">
+        <img src="images/cat-right.png" alt="">
+    </div>
+     
+    <div class="register-form">
+        <div class="tab-header">
+            <button class="tab" routerLink="/login">Sign In</button>
+            <button class="tab active">Create Account</button>
+        </div>
+
+        <form [formGroup]="registerForm" (ngSubmit)="submitRegisterData()">
+            
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" formControlName="username" placeholder="NatureLover22">
+                <!-- Username Error -->
+                @if ((registerForm.get('username')?.invalid && registerForm.get('username')?.touched) || formSubmitted()) {
+                    <span class="error-text">Username is required.</span>
+                }
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" formControlName="email" placeholder="hello@sanctuary.com">
+                <!-- Email Errors -->
+                @if ((registerForm.get('email')?.invalid && registerForm.get('email')?.touched) || formSubmitted()) {
+                    <span class="error-text">
+                        @if (registerForm.get('email')?.errors?.['required']) { Email is required. }
+                        @else if (registerForm.get('email')?.errors?.['email']) { Please enter a valid email address. }
+                    </span>
+                }
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" formControlName="password" placeholder="••••••••">
+               
+                @if ((registerForm.get('password')?.invalid && registerForm.get('password')?.touched) || formSubmitted()) {
+                    <span class="error-text">
+                        @if (registerForm.get('password')?.errors?.['required']) { Password is required. }
+                        @else if (registerForm.get('password')?.errors?.['minlength']) { Password must be at least 8 characters. }
+                    </span>
+                }
+            </div>
+
+            <div class="input-group">
+                <label>Profile Picture</label>
+                <div class="file-upload-wrapper">
+                    <input type="file" (change)="addImage($event)" id="avatar" class="file-input">
+                    <label for="avatar" class="file-label">
+                        <span class="icon">📁</span> Choose a photo...
+                    </label>
+                </div>
+            </div>
+
+         
+           
+            @if (registerError()) {
+                <div class="globalError-area">
+                    <p>username or email is in use try again</p>
+                </div>
+            }
+
+            <button type="submit" class="btn-main" [disabled]="registerForm.invalid" [class.invalid-button]="registerForm.invalid">Create Account</button>
+        </form>
+    </div>
+
+     <div class="image-area mouse">
+        <img src="images/mouse-right.png" alt="">
+    </div>
+</div>
+</div>

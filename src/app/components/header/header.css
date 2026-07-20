@@ -1,0 +1,104 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 35px;
+    align-items: center;
+    position: relative; 
+    z-index: 99999;
+
+
+ 
+}
+
+nav {
+    display: flex;
+    gap: 10px 20px;
+    align-items: center;
+}
+
+.navigation {
+    display: flex;
+    gap: 30px;
+}
+
+.logo-area img {
+    width: 40px;
+    cursor: pointer;
+}
+
+.active-link {
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+
+.login-area {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    
+}
+
+.notification-container {
+    position: absolute;
+    cursor: pointer;
+    top: -9px;
+    right: -1px;
+    transform: rotate(-37deg);
+    
+   
+    
+}
+
+.notification-svg svg {
+    fill: red;
+    
+}
+
+
+
+
+.notification-dropdown {
+   display: flex;
+   flex-direction: column;
+   
+}
+
+.notification-card {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.dropdown-item {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    color: #333;
+    border-bottom: 1px solid #f5f5f5;
+    line-height: 1.4;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background-color: #fafafa;
+}
+
+
+.profile-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid black;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.profile-image img {
+    width: 100%;
+    object-fit: cover
+}
+
+

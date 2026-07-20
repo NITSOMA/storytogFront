@@ -1,0 +1,49 @@
+.request-main {
+    padding: 20px 40px;
+    margin: 0 20px;
+}
+.headers {
+    background-color: rgba(196, 216, 255, 0.200);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.author-name {
+    border: 1px solid rgba(0, 0, 0, 0.259);
+    padding: 1px 12px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+.content {
+    background-color: rgba(230, 190, 137, 0.207);
+    padding: 20px;
+    margin: 20px 0;
+    line-height: 1.4;
+    
+}
+
+.request-details {
+   background-color: rgba(202, 203, 204, 0.200);
+   padding: 20px;
+   display: flex;
+    flex-direction: column;
+    gap: 10px;
+   
+    
+}
+
+.buttons {
+    display: flex;
+    gap: 30px;
+}
+.buttons button {
+    padding: 3px 7px;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid black;
+}

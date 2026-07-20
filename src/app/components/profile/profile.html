@@ -1,0 +1,94 @@
+@if (profileData.value(); as profile) {
+<div class="profile-page">
+    <div class="cover-wrapper">
+        <div class="cover-photo">
+            <img class="cover-photo" [src]="profile.cover_image">
+        </div>
+        
+        <button type="button" class="action-btn change-cover-btn" (click)="coverInput.click()">
+            Change Cover
+        </button>
+        <input (change)="addImage($event, 'cover_image')"  type="file" #coverInput id="cover-upload" accept="image/*" class="file-input">
+    </div>
+
+    <div class="profile-header">
+        <div class="avatar-wrapper">
+            <img [src]="profile.profile_image" alt="Profile Picture">
+            <label for="avatar-upload" class="change-avatar-btn" aria-label="Change profile image">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                    <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+            </label>
+            <input (change)="addImage($event, 'profile_image')" type="file" id="avatar-upload" accept="image/*" class="file-input">
+        </div>
+
+        <div class="header-main">
+            <div class="user-meta">
+                <div class="header">
+                    <h1>{{profile.username}}</h1>
+                   <app-profile-extra>
+               
+                    <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+
+                    <g id="SVGRepo_iconCarrier"> <g clip-path="url(#clip0_15_64)"> <rect width="0" height="24" fill="none"/> <g filter="url(#filter0_d_15_64)"> <circle cx="6" cy="12" r="2" stroke="#000000" stroke-linejoin="round"/> </g> <g filter="url(#filter1_d_15_64)"> <circle cx="12" cy="12" r="2" stroke="#000000" stroke-linejoin="round"/> </g> <g filter="url(#filter2_d_15_64)"> <circle cx="18" cy="12" r="2" stroke="#000000" stroke-linejoin="round"/> </g> </g> <defs> <filter id="filter0_d_15_64" x="2.5" y="9.5" width="7" height="7" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"> <feFlood flood-opacity="0" result="BackgroundImageFix"/> <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/> <feOffset dy="1"/> <feGaussianBlur stdDeviation="0.5"/> <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/> <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_15_64"/> <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_15_64" result="shape"/> </filter> <filter id="filter1_d_15_64" x="8.5" y="9.5" width="7" height="7" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"> <feFlood flood-opacity="0" result="BackgroundImageFix"/> <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/> <feOffset dy="1"/> <feGaussianBlur stdDeviation="0.5"/> <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/> <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_15_64"/> <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_15_64" result="shape"/> </filter> <filter id="filter2_d_15_64" x="14.5" y="9.5" width="7" height="7" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"> <feFlood flood-opacity="0" result="BackgroundImageFix"/> <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/> <feOffset dy="1"/> <feGaussianBlur stdDeviation="0.5"/> <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/> <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_15_64"/> <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_15_64" result="shape"/> </filter> <clipPath id="clip0_15_64"> <rect width="24" height="24" fill="white"/> </clipPath> </defs> </g>
+
+                    </svg>
+                   
+                    </app-profile-extra>
+                </div>
+                
+                <p class="email">{{profile.email}}</p>
+            
+            <p>About: {{profile.about}}</p>
+       
+            </div>
+            
+           
+         
+        </div>
+    </div>
+
+  
+                
+    
+
+    
+    <hr class="divider">
+    
+   
+    <div class="profile-body">
+   
+             <h2 class="stories-header">My Stories
+                <button [routerLink]="['/main']" [queryParams]="{ writeNow: 'true' }">Create New Story</button>
+             </h2>
+            
+
+
+
+        
+       
+
+    @for (story of profile.contributed_stories; track story.id) {
+        <div class="story-card">
+                    <h2>{{ story.title }}</h2>
+                    
+                    <div class="story-meta">
+                        <span>Published: {{ story.created_at | date:'mediumDate' }}</span>
+                        <span>Authors: {{ story.co_authors.join(', ') }}</span>
+                    </div>
+
+                    <p class="snippet">{{ story.first_chapter_snippet }}</p>
+
+                    <button type="button" [routerLink]="['/story', story.id ]">Read More</button>
+                </div>
+    }
+
+        
+    </div>
+</div>
+}

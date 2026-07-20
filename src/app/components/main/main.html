@@ -1,0 +1,86 @@
+<main>
+    <div class="image-area">
+       
+       <div class="title">
+        <h1>StoryTog</h1>
+       </div>
+        <img class="main-image" src="images/animals3.png" alt="Hero banner decoration">
+        
+        <div class="create-read">
+
+             <div (click)="read()" class="create create-1">
+                 <img src="images/mouse-right.png" alt="">
+                 <p  >Read Stories</p>
+            </div>
+
+             <div (click)="write()" class="create create-2">
+                 <img src="images/mouse-right.png" alt="">
+                 <p >Create new Story</p>
+            </div>
+
+            
+          
+        </div>
+       
+    </div>
+
+   
+        <div class="stories-main">
+        @if (readMode()) {
+              <select (change)="filterStories($event)">
+                @for (choice of filterOptions; track $index) {
+                    <option [value]="choice">{{ choice }}</option>
+                }
+            </select>
+
+
+             @if (stories.value(); as data) {
+            @for (story of data.results; track story.id) {
+                <div class="story-card">
+                    <h2>{{ story.title }}</h2>
+                    
+                    <div class="story-meta">
+                        <span>Published: {{ story.created_at | date:'mediumDate' }}</span>
+                        <span>Authors: {{ story.co_authors.join(', ') }}</span>
+                        <span>chapters: {{story.chapters_count}}</span>
+                    </div>
+
+                    <p class="snippet">{{ story.first_chapter_snippet }}</p>
+
+                    <button [routerLink]="['/story', story.id ]" type="button">Read More</button>
+
+                </div>
+            } @empty {
+                <div class="empty-notice">
+                    <p>No stories have been started yet. Be the first contributor below!</p>
+                </div>
+            }
+        } 
+
+
+        }
+        
+
+        @if (writeMode()) {
+            <div class="create-storie">
+            <form [formGroup]="storyForm" (ngSubmit)="createStory()">
+                <label for="storyTitle">Choose title of story</label>
+                <input id="storyTitle" type="text" formControlName="title" appResizeDirective placeholder="Enter story headline...">
+                
+                <label for="firstChapter">Add First Chapter</label>
+                <textarea id="firstChapter" formControlName="first_chapter_content"  ResizeDirective placeholder="Once upon a time, in a world far away..."></textarea>
+                
+                <button type="submit" [disabled]="storyForm.invalid">Save Story</button>
+            </form>
+        </div>
+
+        }
+      
+
+       
+        
+    </div>
+
+    
+    
+</main>

@@ -1,0 +1,32 @@
+here my existing <div class="request-main">
+  @if (notification.isLoading()) {
+    <p>Loading notification details...</p>
+  }
+
+  @if (notification.error()) {
+    <p>Failed to load notification details.</p>
+  }
+
+  @if (notification.value(); as notification) {
+    <div class="headers">
+        <app-author [id]="notification.requested_chapter.author_id">
+            <p  #trigger>Author <strong class="author-name">{{notification.requested_chapter.author_username}}</strong></p>
+        </app-author>
+        <p>Sent request for <strong>{{notification.story_title}}</strong></p>
+        <p>Chapter: {{notification.requested_chapter.chapter_number}}</p>
+    </div>
+    <p class="content">{{notification.requested_chapter.content}}</p>
+
+    <div class="request-details">
+        <p class="status">Status of request: <strong>{{notification.requested_chapter.status}}</strong></p>
+        <p class="approvals">Approvals: <strong>{{notification.requested_chapter.total_approvals}}</strong></p>
+        <p class="rejections">Rejections: <strong>{{notification.requested_chapter.total_rejections}}</strong></p>
+
+        <h3>Would you like to approve this request</h3>
+        <div class="buttons">
+            <button (click)="Vote(true)">Approve</button> 
+            <button (click)="Vote(false)">Reject</button>
+        </div>
+    </div>
+  }
+</div>
