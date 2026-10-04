@@ -1,14 +1,15 @@
-/* Core Layout Container */
+
 .story-detailed-main {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #2d3748;
     text-align: center;
     padding: 40px 20px;
-    max-width: 800px;
+    padding: 30px;
     margin: 0 auto;
+    background-color:  #eee6db;
 }
 
-/* Typography Hierarchy */
+
 h2 {
     font-size: 2.25rem;
     font-weight: 800;
@@ -31,7 +32,7 @@ h4 {
     margin: 24px 0 12px 0;
 }
 
-/* Header Metadata Meta */
+
 .story-extra {
     display: flex;
     flex-wrap: wrap;
@@ -48,16 +49,16 @@ h4 {
 .authors {
     cursor: pointer;
     font-weight: 700;
-    color: #3182ce;
+    color: #ce7031;
     transition: color 0.2s ease;
 }
 
 .authors:hover {
-    color: #2b6cb0;
+    color: #d7954b;
     text-decoration: underline;
 }
 
-/* Chapter Control Layout */
+
 .chapter-extra {
     display: flex;
     justify-content: space-between;
@@ -68,12 +69,13 @@ h4 {
 
 .chap-author {
     font-size: 0.95rem;
-    color: #4a5568;
+    color: #4a7b5a;
     margin: 0;
     font-style: italic;
+   
 }
 
-/* Reading Arena */
+
 .chapter-content {
     background-color: #fcfbfa;
     border: 1px solid #f0eae4;
@@ -81,6 +83,7 @@ h4 {
     text-align: start;
     border-radius: 8px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    overflow-wrap: anywhere;
 }
 
 .chapter-content p {
@@ -91,7 +94,7 @@ h4 {
     margin: 0;
 }
 
-/* Seamless Pagination Navigation */
+
 .navigation-controls {
     display: flex;
     justify-content: space-between;
@@ -163,18 +166,18 @@ h4 {
 }
 
 .comment-author {
-    background-color: #000000d6;
-    border: 1px solid #267667;
+    background-color: #525151;
+    border: 1px solid #000000;
     color: #ffffff;
     font-size: 0.9rem;
-    font-weight: 700;
+  
     letter-spacing: 2px;
     
     padding: 4px 15px;
-    border-radius: 10px;
+    border-radius: 8px;
     position: absolute;
     top: -12px;
-    left: 12px;
+    left: 50px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -283,6 +286,7 @@ textarea:focus {
     cursor: pointer;
     margin-top: 16px;
     transition: all 0.2s ease;
+    text-align: end;
 }
 
 .delete-btn:hover {
@@ -297,7 +301,7 @@ textarea:focus {
     padding-top: 24px;
 }
 
-/* Disabled States Across All Buttons */
+
 .action-footer button:disabled, 
 .chapter-extra button:disabled {
     background-color: #e2e8f0 !important;
@@ -308,7 +312,7 @@ textarea:focus {
     opacity: 0.7;
 }
 
-/* System Notifications and Alerts */
+
 .message {
     margin: 24px 0;
     padding: 16px 20px;

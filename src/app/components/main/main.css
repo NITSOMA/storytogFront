@@ -5,6 +5,9 @@ main {
     color: #000000;
     box-sizing: border-box;
     font-size: 1.2rem;
+    background-color:  #f4f1ef;
+    
+
    
     
     
@@ -12,13 +15,16 @@ main {
 }
 
 .image-area {
-    width: 100%;
-    padding: 0px 20px;
+  
+    padding: 0px 30px;
+    margin: 0 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
+    background-color: #8da28ce1;
+   
 
 }
 
@@ -30,6 +36,7 @@ main {
     letter-spacing: 2.1rem;
     font-size: 5.4rem;
     text-align: center;
+    color: #3a230a;
    
 }
 
@@ -41,6 +48,8 @@ main {
     object-fit: contain;
     margin: 0 auto;
    margin-bottom: 20px;
+   padding: 5px;
+   border: 8px solid #fcc390;
     
 
 }
@@ -50,7 +59,11 @@ main {
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
+    background-color: #fcc390;
+    border-radius: 10px;
+    padding: 20px 20px;
+    margin-bottom: 20px;
 
 }
 
@@ -79,7 +92,7 @@ main {
     flex-direction: column;
     gap: 30px;
     box-sizing: border-box;
-   
+   background-color: #8da28ce1;
     padding: 30px;
    margin: 0 30px;
 }
@@ -87,12 +100,12 @@ main {
 
 select {
    
-    padding: 4px;
+    padding: 4px 10px;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     border: 1px solid #000000;
-    background-color: #fef7f7e7;
+    background-color: #fdd9b9;
     color: #000000;
     cursor: pointer;
     border-radius: 10px;
@@ -102,7 +115,7 @@ select {
 select:focus {
     outline: none;
     color: #272424;
-    background-color: #ffeeee70;
+    
 }
 
 
@@ -112,7 +125,8 @@ select:focus {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    background-color: rgba(255, 226, 209, 0.971);
+    background-color: #f5f1e1;
+    /* background-color: rgba(255, 226, 209, 0.971); */
     border-radius: 10px;
     
     
@@ -153,17 +167,17 @@ button {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border: 1px solid #ecb4b4;
-    background-color: #494343;
-    color: #ffffff;
+    border: 2px solid #bda47f;
+    background-color: #f7f5f5;
+    color: #1f1b1b;
     cursor: pointer;
     border-radius: 7px;
     transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 button:hover {
-     background-color: #ffffff;
-    color: #000000;
+     background-color: #3e3c3c;
+    color: #ffffff;
 }
 
 button:disabled {
@@ -243,7 +257,7 @@ button:disabled {
     color: #cccccc;
 }
 
-/* --- Fallback Messaging --- */
+
 .empty-notice {
     padding: 60px;
     text-align: center;
@@ -263,7 +277,7 @@ button:disabled {
 }
 
 
-@media screen and (max-width: 529px) {
+@media screen and (max-width: 629px) {
     .title h1 {
         font-size: 2.3rem;
         letter-spacing: 1.2rem;
@@ -285,4 +299,23 @@ button:disabled {
         width: 100%;
         
     }
+}
+
+
+
+@media screen and (max-width: 380px) {
+    .title h1 {
+        font-size: 1.3rem;
+        letter-spacing: 1.2rem;
+
+    }
+
+   
+
+   .story-meta {
+    flex-direction: column;
+    gap: 7px;
+    font-weight: 400;
+    font-size: 0.6rem;
+   }
 }

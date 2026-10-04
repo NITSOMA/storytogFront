@@ -1,7 +1,15 @@
+
 .main-content {
  min-height: 100vh;
   width: 100%;
+    background-color: #f4f1ef;
+    padding: 20px;
+      display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
 
 .image-area {
  
@@ -15,8 +23,8 @@
   width: 100%;
   align-self: flex-end;
    transform: translateY(-150px);
- 
-
+  
+   border-radius: 30px;
  
  
   
@@ -26,7 +34,11 @@
 
 
 .registration-main {
-
+ padding: 0px 30px;
+    margin: 0 30px;
+    background-color: #adc5ace1;
+    border-radius: 20px;
+    border: 5px solid  #553921;
 display: flex;
  position: relative;
  justify-content: space-evenly;
@@ -37,8 +49,9 @@ display: flex;
 }
 
 
+
 .register-form {
-  background: rgba(255, 255, 255, 0.75);
+  background: #ffd1a9;
   backdrop-filter: blur(20px);
   width: 100%;
   max-width: 370px;
@@ -50,6 +63,7 @@ display: flex;
   text-align: center;
   transition: transform 0.3s ease;
 }
+
 
 .tab-header {
   background: rgba(0, 0, 0, 0.05);

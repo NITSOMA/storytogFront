@@ -1,4 +1,4 @@
-<div class="mian-content">
+<div class="main-content">
 <div class="registration-main">
 
      <div class="image-area">
@@ -15,7 +15,7 @@
             
             <div class="input-group">
                 <label>Username</label>
-                <input type="text" formControlName="username" placeholder="NatureLover22">
+                <input type="text" formControlName="username" >
                 <!-- Username Error -->
                 @if ((registerForm.get('username')?.invalid && registerForm.get('username')?.touched) || formSubmitted()) {
                     <span class="error-text">Username is required.</span>
@@ -24,7 +24,7 @@
 
             <div class="input-group">
                 <label>Email Address</label>
-                <input type="email" formControlName="email" placeholder="hello@sanctuary.com">
+                <input type="email" formControlName="email" >
                 <!-- Email Errors -->
                 @if ((registerForm.get('email')?.invalid && registerForm.get('email')?.touched) || formSubmitted()) {
                     <span class="error-text">

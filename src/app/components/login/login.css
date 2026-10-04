@@ -1,12 +1,17 @@
 
 
 .main-content {
- height: 100vh;
+ min-height: 100vh;
   width: 100%;
-   background-color:  rgba(255, 255, 255, 0.316);
+    background-color:  #f4f1ef;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 .image-area {
- 
+
   height: 500px;
 
   display: flex;
@@ -17,7 +22,7 @@
   width: 100%;
   align-self: flex-end;
    transform: translateY(-150px);
-   background-color: rgba(255, 255, 255, 0.316);
+  
    border-radius: 30px;
  
  
@@ -25,7 +30,11 @@
 }
 
 .registration-main {
-
+ padding: 0px 30px;
+    margin: 0 30px;
+    background-color: #adc5ace1;
+     border: 5px solid  #553921;
+    border-radius: 20px;
 display: flex;
  position: relative;
  justify-content: space-evenly;
@@ -40,7 +49,7 @@ display: flex;
 
 
 .register-form {
-  background: rgba(255, 255, 255, 0.75);
+  background: #ffd1a9;
   backdrop-filter: blur(20px);
   width: 100%;
   max-width: 370px;

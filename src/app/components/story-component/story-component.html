@@ -15,12 +15,20 @@
             <div class="chapter-extra">
                 <button class="buttonAdd" (click)="addChapter('form')" [disabled]="add()">Add new Chapter</button>
                 <h3>Chapter: {{chapter.chapter_number}}</h3>
-                <p class="chap-author">author: {{chapter.author_username}}</p>
+                
+                <app-author [id]="chapter.author">
+                    <p #trigger class="chap-author">author: {{chapter.author_username}}</p>
+                           
+                            </app-author>
             </div>
                
             <div class="chapter-content">
                  <p>{{chapter.content}}</p>
             </div>
+               @if (userData()?.id === chapter.author) {
+                <button class="delete-btn" (click)="deleteChap(chapter.id)">Delete Chapter</button>
+            }
+        
 
             <div class="navigation-controls">
                 <button 
