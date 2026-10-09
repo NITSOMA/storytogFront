@@ -1,45 +1,39 @@
-# StoryTog — Frontend
+# StoryTog — Collaborative Storytelling
 
-The Angular frontend for **StoryTog**, a collaborative storytelling platform where registered users start stories by publishing the first chapter, and other writers propose chapters to continue them. Proposed chapters are accepted when **more than half of the existing story authors approve**.
+**Write the next chapter, together.**
 
-**Live application:** https://storytog.netlify.app  
-**Backend repository:** https://github.com/NITSOMA/storytog
+StoryTog is a collaborative storytelling platform where writers create stories chapter by chapter. A user starts a story by publishing its first chapter. Other writers can propose the next chapter, and the story's existing authors decide together whether it becomes part of the narrative.
+
+**[Explore StoryTog](https://storytog.netlify.app)** · **[Backend repository](https://github.com/NITSOMA/storytog)**
+
+## How StoryTog works
+
+1. **Start a story.** Register an account, create a story, and publish its opening chapter.
+2. **Propose a continuation.** Another writer creates a proposed next chapter and submits it for review.
+3. **Review and vote.** The story's existing authors evaluate the proposal.
+4. **Continue together.** A proposed chapter needs approval from **more than half of the existing authors** to be accepted. For example, a story with four authors needs three approvals.
 
 ## Features
 
-Based on the current source code, the frontend includes:
-
-- User registration, login, and profile pages
-- Browsing and reading stories
-- Story creation and chapter-related workflows
-- Submission of proposed next chapters for author review
-- Majority-based approval: more than 50% of existing authors must approve a proposed chapter
+- Account registration, sign-in, and user profiles
+- Story discovery and reading
+- Story creation and chapter writing
+- Chapter proposals and author review
+- Majority-based approval for new chapters
 - Comments and notifications
-- Author information and story-related navigation
 
-> Add real screenshots here, ideally a home page, story detail page, and a writing or chapter-request workflow.
+## Built with
 
-## How collaborative writing works
+- **Angular 21** and **TypeScript**
+- **Angular Router** for navigation
+- **Angular HttpClient** and **RxJS** for API communication
+- **Vitest** for frontend tests
 
-1. A registered user creates a story and publishes its first chapter.
-2. Another user writes a proposed next chapter and submits a request.
-3. Existing story authors review and vote on the proposed chapter.
-4. The chapter can be accepted once approvals exceed 50% of existing authors (for example, 3 approvals out of 4 authors).
+The frontend communicates with a separate Django REST Framework backend, which manages accounts, stories, chapter requests, and voting.
 
-## Tech stack
+## Run locally
 
-- Angular 21
-- TypeScript 5.9
-- Angular Router and HttpClient
-- RxJS
-- Vitest for unit testing
-
-## Getting started
-
-### Requirements
-
-- Node.js and npm versions compatible with Angular 21
-- A running StoryTog backend API
+**Prerequisites:** Node.js and npm compatible with Angular 21, plus a running [StoryTog backend](https://github.com/NITSOMA/storytog).
 
 ```bash
 git clone https://github.com/NITSOMA/storytogFront.git
@@ -48,26 +42,26 @@ npm ci
 npm start
 ```
 
-Open http://localhost:4200.
+Open **http://localhost:4200**.
 
-The frontend uses an injected `APP_CONFIG` token with an `apiUrl` property. Configure the API base URL in the application configuration for your environment before starting the app.
+For local development, `src/environments/environment.development.ts` sets the API URL to `http://localhost:8000`. Update it if your backend runs at a different address. The production environment uses `/api`, which is resolved through the deployed site's configuration.
 
-## Commands
+## Useful commands
 
 ```bash
-npm start        # local development server
-npm run build    # production build
-npm test         # unit tests
+npm start       # Start the development server
+npm run build   # Create a production build
+npm test        # Run frontend tests
 ```
 
-## Architecture
+## Project organization
 
-The `src/app` folder separates routed components, HTTP services, guards, an authentication interceptor, and TypeScript models. `StoryService` communicates with the backend's story and social endpoints.
+The Angular application organizes its pages and features into components, with dedicated services for API requests, route guards for protected navigation, an HTTP interceptor for authentication, and TypeScript models for application data.
 
 ## Deployment
 
-The frontend is deployed on Netlify. The backend is deployed separately; API URL and cross-origin authentication settings must match the deployed environment.
+The frontend is hosted on **Netlify**. The backend is hosted separately on **Render**.
 
-## Related repository
+---
 
-[StoryTog backend](https://github.com/NITSOMA/storytog)
+**Backend source:** [github.com/NITSOMA/storytog](https://github.com/NITSOMA/storytog)
